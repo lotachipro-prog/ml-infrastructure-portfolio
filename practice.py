@@ -1,27 +1,11 @@
-def get_result(years):
-    
-        if years >= 3:
-            return "Strong application"
-        elif years >= 1:
-            return "Promising application"
-        else:
-            return "Need more experience"
-    
+import pandas as pd
 
+data = {
+    "name": ["Lota", "Sarah", "James", "Aisha", "Tunde"],
+    "role": ["ML Engineer", "Data Engineer", "MLOps Engineer", "ML Engineer", "Data Engineer"],
+    "salary": [45000, 50000, 35000, 48000, 42000],
+    "years": [2, 4, 0, 3, 1]
+}
 
-applications = [
-    {"name": "Lota", "role": "ML Engineer", "years": 2},
-    {"name": "Sarah", "role": "Data Engineer", "years": 4},
-    {"name": "James", "role": "MLOps Engineer", "years": 0}
-]
-for app in applications:
-    print(app["name"], "-", app["role"], "-", get_result(app["years"]))
-
-with open("results.txt", "w") as file:
-    for app in applications:
-        result = get_result(app["years"])
-        file.write(app["name"] + " - " + app["role"] + " - " + result + "\n")
-
-with open("results.txt", "r") as file:
-    content = file.read()
-    print(content)
+df = pd.DataFrame(data)
+print(df)
